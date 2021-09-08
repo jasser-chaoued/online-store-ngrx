@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from "./store/reducer";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { reducer } from "./store/reducer";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({cart: reducer})
+    StoreModule.forRoot({cart: reducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 6
+    }) 
   ],
   providers: [],
   bootstrap: [AppComponent]
